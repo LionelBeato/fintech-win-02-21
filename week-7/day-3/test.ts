@@ -1,4 +1,15 @@
 export {};
+/* 
+---------------------
+INTRO & DEFINING TYPES
+---------------------
+*/
+
+console.log("\n---------\nINTRO & DEFINING TYPES\n---------\n");
+
+
+
+
 let helloWorld = "hello World";
 console.log(helloWorld);
 
@@ -7,8 +18,11 @@ const area = obj.width * obj.height;
 
 console.log(area);
 
-// interfaces are how we define the shape of our objects
-// they are the templates of our objects
+/**
+ * interfaces are how we define the shape of our objects
+ * they are the templates of our objects
+ * you can also say they help us define our types
+*/
 interface User {
   name: string;
   id: number;
@@ -23,6 +37,15 @@ const otherUser: User = {
   name: "Lionel",
   id: 1,
 };
+
+/* 
+---------------------
+TYPES
+---------------------
+*/
+
+console.log("\n---------\nTYPES\n---------\n");
+
 
 // variable: type = value/literal;
 let completed: boolean = false;
@@ -107,6 +130,15 @@ let someValue: unknown = "this is a string";
 // let strLength: number = (someValue as string).length;
 let strLength: number = (<string>someValue).length;
 
+/* 
+---------------------
+INTERFACES
+---------------------
+*/
+
+console.log("\n---------\nINTERFACES\n---------\n");
+
+
 interface LabeledValue {
   // size: number;
   label: string;
@@ -130,69 +162,74 @@ interface square {
 }
 
 // as we can see, we technically do not need to define
-// a property for color 
+// a property for color
 // let mySquare: square = { width: 100 };
 let mySquare: square = { width: 100, color: "red" };
 
-
-
-
 interface Point {
-    readonly x: number;
-    readonly y: number; 
+  readonly x: number;
+  readonly y: number;
 }
 
-let p1: Point = {x: 10, y: 20};
-// p1.x = 5; 
+let p1: Point = { x: 10, y: 20 };
+// p1.x = 5;
 
-let readOnlyArray: ReadonlyArray<number> = [1, 2, 3, 4]; 
-//  readOnlyArray[0] = 2; 
-//  readOnlyArray.push(5); 
+interface Wrapper {
+  readonly numbers: number[];
+}
+
+let collection:Wrapper = {
+  numbers: [1,2,3],
+}
+
+let newNumbers = collection.numbers.map((x) => x);
+
+let readOnlyArray: ReadonlyArray<number> = [1, 2, 3, 4];
+//  readOnlyArray[0] = 2;
+//  readOnlyArray.push(5);
 
 interface SearchFunc {
-    (source: string, subString: string): boolean; 
+  (source: string, subString: string): boolean;
 }
 
-let mySearch: SearchFunc; 
+let mySearch: SearchFunc;
 
 mySearch = function (source: string, subString: string) {
-    let result = source.search(subString); 
-    return result > -1; 
-}
+  let result = source.search(subString);
+  return result > -1;
+};
 
 // it doesn't matter what we call the parameters,
 // they will always have a type association via the interface
 // the function will always need to return a boolean
-let otherSearch:SearchFunc = function (src, sb) {
-    return true; 
-}
+let otherSearch: SearchFunc = function (src, sb) {
+  return true;
+};
 
 interface ClockInterface {
-    currentTime: Date;
-    setTime(d: Date): void; 
+  currentTime: Date;
+  setTime(d: Date): void;
 }
 
 class Clock implements ClockInterface {
-    currentTime: Date = new Date();
-    // setTime can now have a concrete implementation
-    // this means it will have a method body
-    // a method is a function on an object
-    setTime(d: Date) {
-        this.currentTime = d; 
-    }
-    constructor(h: number, m: number) {}
+  currentTime: Date = new Date();
+  // setTime can now have a concrete implementation
+  // this means it will have a method body
+  // a method is a function on an object
+  setTime(d: Date) {
+    this.currentTime = d;
+  }
+  constructor(h: number, m: number) {}
 }
-
-
 
 interface Shape {
-    color: string;
+  color: string;
 }
 
-interface Square extends Shape  {
-    // the property color is inherited from shape
-    // color: string; 
-    sideLength: number; 
+interface Square extends Shape {
+  // the property color is inherited from shape
+  // color: string;
+  sideLength: number;
 }
 
 let square = {} as Square;
@@ -200,67 +237,225 @@ let square = {} as Square;
 // let square: Square;
 
 square.color = "blue";
-square.sideLength = 10; 
+square.sideLength = 10;
 
 console.log(square);
 
 interface PenStroke {
-    penWidth: number; 
+  penWidth: number;
 }
 
 interface StrokedSquare extends Shape, PenStroke {
-    sideLength: number; 
+  sideLength: number;
 }
 
 let strokedSquare: StrokedSquare = {
-    color: "blue",
-    sideLength: 10,
-    penWidth: 5.0, 
+  color: "blue",
+  sideLength: 10,
+  penWidth: 5.0,
+};
+
+/* 
+---------------------
+FUNCTIONS
+---------------------
+*/
+console.log("\n---------\nFUNCTIONS\n---------\n");
+
+
+function add(x: number, y: number): number {
+  return x + y;
 }
 
-function add(x: number, y:number): number {
-    return x + y; 
-}
-
-let y = (x):number => x * 2; 
+let y = (x): number => x * 2;
 
 console.log(add(5, 3));
 console.log(y(5));
 
 function buildName(firstName: string, lastName: string) {
-    return `${firstName} ${lastName}`; 
+  return `${firstName} ${lastName}`;
 }
 
 // below will throw an error
 // too few arguments
-// let result = buildName("Bob"); 
+// let result = buildName("Bob");
 let result = buildName("Bob", "Adams");
 
 function defaultName(firstName: string, lastName = "Smith") {
-    return firstName + " " + lastName; 
+  return firstName + " " + lastName;
 }
 
 let defaultResult = defaultName("Bob");
 console.log(defaultResult);
 
 function restName(firstName: string, ...restOfName: string[]) {
-    return firstName + " " + restOfName.join(" "); 
+  return firstName + " " + restOfName.join(" ");
 }
 
 let employeeName = restName("Joseph", "Samuel", "Lucas", "MacKinzie");
 
 console.log(employeeName);
 
+/* 
+---------------------
+Unions and Intersections
+---------------------
+*/
 
-function padLeft(value:string, padding: string | number) {
-    if (typeof padding === "number") {
-        return Array(padding + 1).join(" ") + value; 
-    }
-    if (typeof padding === "string") {
-        return padding + value;
-    }
+console.log("\n---------\nUNIONS & INTERSECTIONS\n---------\n");
 
-    throw new Error(`Expected string or number, got '${typeof padding}'`);
+function padLeft(value: string, padding: string | number) {
+  if (typeof padding === "number") {
+    return Array(padding + 1).join(" ") + value;
+  }
+  if (typeof padding === "string") {
+    return padding + value;
+  }
+
+  throw new Error(`Expected string or number, got '${typeof padding}'`);
 }
 
-console.log(padLeft("Hello world", 4)); 
+console.log(`print out of the function 'padLeft()' \nwith a number passed in: ${padLeft("Hello world", 4)}\n`);
+console.log(`print out of the function 'padLeft()' \nwith a string passed in: ${padLeft("Hello world", "Yo! ")}`);
+
+
+interface Bird {
+  fly(): void;
+  layEggs(): void;
+}
+
+interface Fish {
+  fly(): void;
+  layEggs(): void;
+}
+
+// declare function getSmallPet(): Fish | Bird;
+
+// let pet = getSmallPet();
+// pet.layEggs();
+
+// since swim() is only on Fish, the line below is illegal
+// pet.swim();
+
+type NetworkLoadingState = {
+  state: "loading";
+};
+
+type NetworkFailedState = {
+  state: "failed";
+  code: number;
+};
+
+type NetworkSuccessState = {
+  state: "success";
+  response: {
+    title: string;
+    duration: number;
+    summary: string;
+  };
+};
+
+/**
+ * We don't know what type we'll ultimately utilize,
+ * but we do know it'll be one of the above 3.
+ * We can thus make a type that will be a union of 
+ * these three.  
+*/
+
+type NetworkState =
+  | NetworkLoadingState
+  | NetworkFailedState
+  | NetworkSuccessState;
+
+
+  /**
+   * Intersection is a combination type
+   * that allows us to access all properties
+   * across all types
+   */
+
+  interface Student {
+    name: string;
+    age: number;
+  }
+
+  interface Worker {
+    employeeId: string;
+  }
+
+  type StudentWorker = Student & Worker; 
+
+  let myStudentWorker: StudentWorker = {
+    name: "Joe",
+    age: 31,
+    employeeId: "ID3241",
+  }
+
+  /* 
+---------------------
+CLASSES
+---------------------
+*/
+
+console.log("\n---------\nCLASSES\n---------\n");
+
+
+
+/**
+ * Classes are data structures that represent
+ * blueprints for objects with certain qualities
+ * and functionalities related to inheritance
+ * and other OOP concepts
+ */
+
+class Animal {
+  /**
+   * property variables of a class are known as members.
+   * members are private by default
+   *  */ 
+  public name: string;
+  /**
+   * variables can be public, private, or protected.
+   * public = accessable from anywhere.
+   * private = accessable only in the class.
+   * protected = accessable only in the class and subclasses.
+   */
+  private nickName: string;
+  constructor(name: string, nickName: string) {
+    this.name = name; 
+    this.nickName = nickName;
+  }
+  move(distanceInMeters: number = 0) {
+    console.log(`${this.name} moved ${distanceInMeters}m.`);
+  }
+}
+
+/**
+ * class Snake is extending class Animal
+ * thus inheriting its properties
+ */
+
+class Snake extends Animal {
+  constructor(name: string, nickName: string) {
+    super(name, nickName);
+  }
+  move(distanceInMeters = 5) {
+    console.log("Slithering...");
+    super.move(distanceInMeters);
+  }
+}
+
+/**
+ * instantiating a new snake object
+ * note the "new" keyword; this is used
+ * whenever we call the class's constructor.
+ *  */ 
+let sam = new Snake("Sammy the Python", "SammyWammy");
+console.log(sam);
+
+/**
+ * The line below is illegal! 
+ * Member nickName is private!
+ */
+// console.log(sam.nickName);
+sam.move();
