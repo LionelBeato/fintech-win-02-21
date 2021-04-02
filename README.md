@@ -9,3 +9,7 @@ _Repository for the Fintech WIN cohort starting February 2021_
 - [Angular Lifecycle Hooks explained | _freecodecamp_](https://www.freecodecamp.org/news/angular-lifecycle-hooks/): freeCodeCamp explainer for lifecycle hooks.
 
 - [Build Your First Angular app | _scrimba_](https://scrimba.com/learn/yourfirstangularapp): this site is an awesome resource with hands-on interactive tutorials. I haven't taken this one but they're all generally very good across the board.
+
+## General Resources
+
+- [DevDocs](https://devdocs.io/): no more hunting down documentation! This site aggregates major api documentations for quick accessibility. Check the Angular section! 
