@@ -82,5 +82,20 @@ public class Main {
         System.out.println(myString.concat(" This is your instructor!"));
         System.out.println(myString.indexOf('W'));
 
+
+        // this variable is not initialized
+        // meaning it has no meaningful value
+        String emptyString;
+
+        // illegal variables names
+//        String &hello;
+//        String 1hello;
+//        String int;
+
+//        error! -> java: variable emptyString might not have been initialized
+//        System.out.println(emptyString);
+
+
+
     }
 }
