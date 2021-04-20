@@ -113,7 +113,5 @@ public class Main {
 
         animalList.set(1, "emu");
         System.out.println(animalList);
-
-
     }
 }
