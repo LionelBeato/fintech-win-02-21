@@ -1,6 +1,6 @@
 package com.tts.day3.dealership;
 
-public class LightTruck {
+public class LightTruck extends Vehicle {
 
     // keep in mind that whenever we create classes
     // we can use them as types

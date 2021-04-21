@@ -20,4 +20,32 @@ public class Vehicle {
     // start its engine
     // these behaviors can be described as methods
 
+    public void printVehicleType() {
+        String type;
+        switch (this.vehicleClassification) {
+            case NEW:
+                type = "New Car";
+                break;
+            case USED:
+                type = "Used Car";
+                break;
+            case OFF_LEASE:
+                type = "Leased Car";
+                break;
+            case SHUTTLE:
+                type = "Dealer Shuttle";
+                break;
+            case LOANER:
+                type = "Dealer Service Loaner";
+                break;
+            case PARTS_RUNNER:
+                type = "Parts runner";
+                break;
+            default:
+                type = "NOT SET";
+                break;
+
+        }
+    }
+
 }
