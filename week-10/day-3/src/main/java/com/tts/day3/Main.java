@@ -5,6 +5,7 @@ import com.tts.day3.abs.Shoe;
 import com.tts.day3.abs.Trumpet;
 import com.tts.day3.abs.WingTips;
 import com.tts.day3.dealership.LightTruck;
+import com.tts.day3.dealership.Vehicle;
 import com.tts.day3.enumeration.Day;
 import com.tts.day3.enumeration.EnumTest;
 
