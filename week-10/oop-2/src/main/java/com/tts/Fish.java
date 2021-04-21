@@ -16,7 +16,8 @@ public class Fish extends Animal {
     @Override
     public String toString() {
         return "Fish{" +
-                "isScaled=" + isScaled +
+                "name=" + super.getName() +
+                " isScaled=" + isScaled +
                 ", isFresh=" + isFresh +
                 '}';
     }

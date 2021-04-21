@@ -103,13 +103,9 @@ public class Main {
 //        }
 
         studentList.forEach((student) -> System.out.println(student));
-
         studentList.add(Student.addStudents("name", 45, 2021));
-
         Fish myFish = new Fish("catfish", "bloop");
-
         System.out.println(myFish);
-
 
     }
 }

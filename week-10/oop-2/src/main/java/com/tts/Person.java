@@ -1,7 +1,6 @@
 package com.tts;
 
 public class Person {
-
     // a person can have a height
     // a person can have an eye color
 
@@ -85,6 +84,5 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
-
 }
 
