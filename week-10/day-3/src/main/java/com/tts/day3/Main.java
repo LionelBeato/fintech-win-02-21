@@ -9,6 +9,12 @@ import com.tts.day3.dealership.Vehicle;
 import com.tts.day3.dealership.VehicleClassification;
 import com.tts.day3.enumeration.Day;
 import com.tts.day3.enumeration.EnumTest;
+import com.tts.day3.factory.Department;
+import com.tts.day3.factory.DepartmentFactory;
+import com.tts.day3.factory.DepartmentName;
+
+import java.util.ArrayList;
+import java.util.List;
 
 // a class is a blueprint to create an object
 // an object is going to be an instance of class
@@ -49,6 +55,20 @@ public class Main {
         myLightTruck.setVehicleClassification(VehicleClassification.NEW);
 
 
-    }
+        // enum constructors have private access by default
+        // the code below is illegal
+//        VehicleClassification vehicleClassification = new VehicleClassification(true, true);
 
+
+        Department serviceDepartment = DepartmentFactory
+                .createDepartment(DepartmentName.SERVICE);
+
+        Department financialDepartment = DepartmentFactory
+                .createDepartment(DepartmentName.FINANCE);
+
+        List<Department> depts = new ArrayList<>();
+        depts.add(serviceDepartment);
+        depts.add(financialDepartment);
+
+    }
 }

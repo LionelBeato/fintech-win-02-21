@@ -15,6 +15,7 @@ public enum VehicleClassification {
     private boolean warranty;
     private boolean freeService;
 
+    // These two methods are our "getters" for the fields above
     public boolean WarrantyOffered() {
         return warranty;
     }
@@ -23,7 +24,7 @@ public enum VehicleClassification {
         return freeService;
     }
 
-    VehicleClassification(boolean warranty, boolean freeService) {
+     VehicleClassification(boolean warranty, boolean freeService) {
         this.warranty = warranty;
         this.freeService = freeService;
     }
