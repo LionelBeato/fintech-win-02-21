@@ -44,8 +44,7 @@ public class Vehicle {
             default:
                 type = "NOT SET";
                 break;
-
         }
+        System.out.println("This car type is: " + type);
     }
-
 }
