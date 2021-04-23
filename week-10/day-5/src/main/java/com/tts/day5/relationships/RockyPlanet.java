@@ -1,13 +1,27 @@
-package com.tts.day5;
+package com.tts.day5.relationships;
+
+import com.tts.day5.Planet;
+import com.tts.day5.Rotatable;
 
 // once we extend Planet, we MUST implement all abstract methods
-// if we dont want to implement,
+// if we don't want to implement,
 // RockyPlanet must be abstract as well
 // as it is, RockyPlanet is concrete
 public class RockyPlanet extends Planet implements Rotatable {
 
     private Long distanceFromSun;
-    private Atmosphere atmosphere;
+
+    // below is an example of composition
+    // Atmosphere's lifecycle is tied to RockyPlanet
+    // and as such it cannot exist by itself
+    // if RockyPlanet is destroyed, Atmosphere is destroyed
+    //  we can say a RockyPlanet "has-a(n)" Atmosphere
+    // this means there will be a field of type Atmosphere
+    // on the class RockyPlanet
+    class Atmosphere {
+
+    }
+
 
     // setters and getters are an example of encapsulation
     // reason being is that we are wrapping access to the field
@@ -28,4 +42,5 @@ public class RockyPlanet extends Planet implements Rotatable {
     public void doRotate() {
         System.out.println("This planet is rotating.");
     }
+
 }

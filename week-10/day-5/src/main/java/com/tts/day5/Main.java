@@ -1,5 +1,7 @@
 package com.tts.day5;
 
+import com.tts.day5.relationships.RockyPlanet;
+
 public class Main {
 
     // abstract classes
