@@ -1,5 +1,8 @@
 package com.tts.day2;
 
+// below is an example of a class that is
+// using itself as a field type
+// this may seem a bit confusing but its completely legal
 public class Tree {
 
     private String name;

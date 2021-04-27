@@ -38,4 +38,13 @@ public class Node {
     public void setRightNode(Node rightNode) {
         this.rightNode = rightNode;
     }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "key=" + key +
+                ", leftNode=" + leftNode +
+                ", rightNode=" + rightNode +
+                '}';
+    }
 }
