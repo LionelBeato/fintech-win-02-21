@@ -27,5 +27,13 @@ public class Main {
 
         System.out.println(binaryTree);
 
+        BinaryHeap binaryHeap = new BinaryHeap();
+        int[] nodesHeap = {1, 12, 3, 24, 7};
+
+        for (int n: nodesHeap) {
+            binaryHeap.heap.add(n);
+        }
+
+        System.out.println(binaryHeap);
     }
 }
