@@ -1,4 +1,4 @@
-package com.tts.day5;
+package com.tts.day5.io;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
