@@ -1,6 +1,21 @@
 package com.tts.day2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
+
+    public static int addUntilTen(int x){
+        x = x + 1;
+        System.out.println(x);
+
+        if (x == 10) {
+            return x;
+        }
+
+       return addUntilTen(x);
+    }
+
 
     public static void main(String[] args) {
         Tree childTree = new Tree("Oak", "21", new Tree());
@@ -35,5 +50,25 @@ public class Main {
         }
 
         System.out.println(binaryHeap);
+
+        List<Shoe> shoePair = new ArrayList<>();
+
+        Shoe leftShoe = new Shoe();
+        leftShoe.setBrand("Nike");
+        Shoe rightShoe = new Shoe();
+        rightShoe.setBrand("Nike");
+
+        leftShoe.setSiblingShoe(rightShoe);
+//        rightShoe.setSiblingShoe(leftShoe);
+
+        shoePair.add(leftShoe);
+        shoePair.add(rightShoe);
+
+        System.out.println(shoePair);
+
+        addUntilTen(0);
+
+
+
     }
 }

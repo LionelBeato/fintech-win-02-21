@@ -10,10 +10,14 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+//    testImplementation 'junit:junit:4.13.1'
+//// https://mvnrepository.com/artifact/org.jfree/jfreechart
+    implementation group: 'org.jfree', name: 'jfreechart', version: '1.5.0'
+////    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+//    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
 
-test {
-    useJUnitPlatform()
-}
+//test {
+//    useJUnitPlatform()
+//}
