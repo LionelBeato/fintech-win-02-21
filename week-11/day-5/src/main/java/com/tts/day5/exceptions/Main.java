@@ -27,17 +27,37 @@ public class Main {
 
 
 
-    public static int getInt() {
-        Scanner scanner = new Scanner(System.in);
+    public static int getInt(Scanner scanner) {
+//        Scanner scanner = new Scanner(System.in);
         System.out.println("please input a number.");
         try {
             return scanner.nextInt();
         } catch (InputMismatchException e) {
             return 0;
         }
+
+
+    }
+
+    public static void acceptName(Scanner scanner) {
+//        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please input your name:");
+
+        try {
+            String userName = scanner.nextLine();
+            if (userName.charAt(0) != 'L') {
+                throw new LIsNotFirstCharacterException("The first character in your name is not 'L'!");
+            }
+        } catch (LIsNotFirstCharacterException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("End of method");
     }
 
     public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
 
         try {
             // here we attempt any code we want to run
@@ -62,10 +82,13 @@ public class Main {
 //        System.out.println(divideLBYL(5, 0));
 //        System.out.println(divideEAFP(5, 0));
 
-        int x = getInt();
+        int x = getInt(scanner);
         System.out.println("x is " + x);
+        scanner.nextLine();
+
+        acceptName(scanner);
 
 
-
+        scanner.close();
     }
 }
