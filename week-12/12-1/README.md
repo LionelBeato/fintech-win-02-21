@@ -88,7 +88,7 @@ _Executors_ refer to objects that _encapsulate_ functionality related to thread 
  executor.execute(new RunnableTask2());
  ```
 
-The Java API provides another Executor interface called _ExecutorService_. This is an extension of the original interface that provides more discrete methods and handle its own termination.[<sup>4</sup>](#references)
+The Java API provides another Executor interface called _ExecutorService_. This is an extension of the original interface that provides more discrete methods and handle its own termination.[<sup>4</sup>](#references) This interface can accept `Runnable` and `Callable`. 
 
 ```java
  void shutdownAndAwaitTermination(ExecutorService pool) {

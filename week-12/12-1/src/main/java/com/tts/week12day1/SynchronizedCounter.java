@@ -18,7 +18,6 @@ public class SynchronizedCounter {
 //        return c;
 //    }
 
-
     public void increment() {
         c.incrementAndGet();
     }
