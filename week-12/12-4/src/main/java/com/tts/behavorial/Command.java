@@ -5,6 +5,7 @@ package com.tts.behavorial;
 public abstract class Command {
 
     public Editor editor;
+    // this variable represents a previous state of your text
     private String backup;
 
     Command(Editor editor) {
@@ -13,12 +14,13 @@ public abstract class Command {
 
     // this is more or less a setter
     void backup() {
-        backup = editor.textField.getText();
+//        backup = editor.textField.getText();
     }
 
     // here we invoke textField's setter and pass in the value of our backup
     public void undo() {
-        editor.textField.setText(backup);
+        // this method is setting back the text to the previous state
+//        editor.textField.setText(backup);
     }
 
     public abstract boolean execute();
