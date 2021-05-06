@@ -1,6 +1,10 @@
 package com.tts;
 
-import com.tts.creational.SingletonClass;
+import com.tts.creational.factory.Notification;
+import com.tts.creational.factory.NotificationFactory;
+import com.tts.creational.factory.Policy;
+import com.tts.creational.factory.PolicyFactory;
+import com.tts.creational.singleton.SingletonClass;
 import com.tts.structural.adapter.BirdAdapter;
 import com.tts.structural.adapter.Sparrow;
 import com.tts.structural.adapter.ToyDuck;
@@ -24,6 +28,25 @@ public class Main {
         // it'll instead call the bird's makeSound method
         birdAdapter.squeak();
 
+        // creating an instance of NotificationFactory
+        NotificationFactory notificationFactory = new NotificationFactory();
+        Notification notification = notificationFactory.createNotification("EMAIL");
+        notification.notifyUser();
+
+        PolicyFactory policyFactory = new PolicyFactory();
+        Policy policy = policyFactory.createPolicy("internet",
+                "05/06/2021",
+                "One year",
+                "1000 Dollars");
+
+
+        System.out.println(policy);
+      policy.renew();
+
     }
+
+
+
+
 
 }

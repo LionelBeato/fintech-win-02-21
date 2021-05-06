@@ -1,4 +1,4 @@
-package com.tts.creational;
+package com.tts.creational.singleton;
 
 public class SingletonClass {
 
