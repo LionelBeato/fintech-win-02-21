@@ -81,7 +81,6 @@ public class Main {
 
         List rawList = new ArrayList<>();
 
-
         List<String> stringList = new ArrayList<>();
         stringList.add("Hello");
         stringList.add("from");
