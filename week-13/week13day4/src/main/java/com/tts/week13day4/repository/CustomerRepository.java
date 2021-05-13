@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
 
     // we can make a method that finds by last name
+    Iterable<Customer> findByLastName(String lastName);
 
 }
