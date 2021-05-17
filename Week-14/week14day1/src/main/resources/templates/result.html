@@ -18,7 +18,7 @@ xmlns:th="http://www.thymeleaf.org">
 </p>
 
 <!-- here, #{msg.welcome} is our message expression-->
-<p th:text="#{welcome}">Welcome Everyone
+<p th:utext="#{msg.welcome}">Welcome Everyone</p>
 
 <!-- th:each is acting like an enhanced for loop-->
 <ul th:each="book : ${books}" >
@@ -31,7 +31,7 @@ xmlns:th="http://www.thymeleaf.org">
 
 
 <form th:action="@{/postendpoint}">
-    <input type="button" th:value="#{form.submit}" />
+    <input type="submit" th:value="#{form.submit}" />
 </form>
 
 
