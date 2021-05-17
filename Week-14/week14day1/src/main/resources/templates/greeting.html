@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--xmlns:th="http://www.thymeleaf.org" is used to stop our IDE from throwing errors
+ when we utilize the th namespace, this is how we declare that namespace -->
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title >Getting Started: Serving Web Content</title>
+
+    <style>
+
+        p {
+            color:red;
+        }
+
+    </style>
+</head>
+<body>
+<!-- thymeleaf refers to our model attribute as a context variable -->
+<!-- basically anything that looks like ${} can be representative of data in your application -->
+<!-- this is very similar to javascript template literals and Java formats -->
+<p th:text="'Hello, ' + ${name}  + '!'">
+    This text will be replace by thymeleaf
+</p>
+
+</body>
+</html>

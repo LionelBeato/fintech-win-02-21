@@ -3,6 +3,7 @@ package com.tts.week14day1.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,6 +24,8 @@ public class GreetingController {
     // we do not say @ResponseBody
     // take note that @GetMapping is the same thing as saying
     // @RequestMapping(value="/greeting", method = RequestMethod.GET)
+    // please remember that without the @ResponseBody
+    // this method will only work with our HTML files in the templates folder
     @GetMapping("/greeting")
     public String greeting(@RequestParam(name="name",
             required = false,
@@ -30,6 +33,23 @@ public class GreetingController {
         model.addAttribute("randomValue", 452352L);
         model.addAttribute("name", name);
         return "greeting";
+    }
+
+    // the path variable here will be part of the endpoint
+    @GetMapping("/greeting/var/{name}")
+    @ResponseBody
+    public String greetingWithPathVar(@PathVariable String name) {
+        return "hello there, " + name;
+    }
+
+    // the request param here is not considered part of your endpoint
+    // think of it more as an extension of your endpoint
+    @GetMapping("/greeting/param/")
+    @ResponseBody
+    public String greetingWithParam(@RequestParam(name="name",
+            required = false,
+            defaultValue="World") String name) {
+        return "hello there, " + name;
     }
 
 }
