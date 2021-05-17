@@ -56,5 +56,10 @@ public class GreetingController {
         return "result";
     }
 
+    @ModelAttribute("greeting")
+    public Greeting messages() {
+        return new Greeting();
+    }
+
 
 }

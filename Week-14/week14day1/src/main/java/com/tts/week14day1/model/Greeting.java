@@ -1,7 +1,12 @@
 package com.tts.week14day1.model;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 public class Greeting {
 
+    public Greeting() {
+    }
 
     private Long id;
     private String content;
