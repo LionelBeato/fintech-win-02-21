@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<!--xmlns:th="http://www.thymeleaf.org" is used to stop our IDE from throwing errors
- when we utilize the th namespace, this is how we declare that namespace -->
-<html lang="en"
-xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title >Getting Started: Serving Web Content</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<!-- thymeleaf refers to our model attribute as a context variable -->
-<!-- basically anything that looks like ${} can be representative of data in your application -->
-<!-- this is very similar to javascript template literals and Java formats -->
-<p th:text="'Hello, ' + ${name}  + '!'">
-    This text will be replace by thymeleaf
-</p>
-
+<h1>Form</h1>
+<!--below is how one would render a form via thymeleaf-->
+<form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+    <p>Id: <input type="text" th:field="*{id}" /></p>
+    <p>Message: <input type="text" th:field="*{content}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
 </body>
 </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--xmlns:th="http://www.thymeleaf.org" is used to stop our IDE from throwing errors
+ when we utilize the th namespace, this is how we declare that namespace -->
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title >Getting Started: Serving Web Content</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- thymeleaf refers to our model attribute as a context variable -->
+<!-- basically anything that looks like ${} can be representative of data in your application -->
+<!-- this is very similar to javascript template literals and Java formats -->
+<!-- below, ${name} is our variable expression -->
+<p th:text="'Hello, ' + ${name}  + '!'">
+    This text will be replace by thymeleaf
+</p>
+
+<!-- here, #{msg.welcome} is our message expression-->
+<p th:text="#{welcome}">Welcome Everyone
+
+<!-- th:each is acting like an enhanced for loop-->
+<ul th:each="book : ${books}" >
+    <li>
+        <span th:text="${book.title}"></span>
+        <span th:text="${book.author}"></span>
+    </li>
+
+</ul>
+
+
+<form th:action="@{/postendpoint}">
+    <input type="button" th:value="#{form.submit}" />
+</form>
+
+
+
+<a th:href="@{/endpoint}">link</a>
+<a href="/endpoint">link</a>
+
+<h1>Result</h1>
+<p th:text="'id: ' + ${greeting.id}" />
+<p th:text="'content: ' + ${greeting.content}" />
+<a href="/greeting">Submit another message</a>
+
+</body>
+</html>
