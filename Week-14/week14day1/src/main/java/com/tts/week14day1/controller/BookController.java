@@ -21,6 +21,8 @@ public class BookController {
                 new Book(2L, "title two", "author two")
         );
         model.addAttribute("books", bookList);
+        // here i am showcasing that a template can be reused on multiple controllers
+        // this may not be considered best practice though
         return "greeting";
     }
 
