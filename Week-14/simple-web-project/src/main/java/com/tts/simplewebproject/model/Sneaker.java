@@ -38,8 +38,7 @@ public class Sneaker {
                 '}';
     }
 
-    public Sneaker(Long id, String color) {
-        this.id = id;
+    public Sneaker(String color) {
         this.color = color;
     }
 
