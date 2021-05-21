@@ -9,4 +9,5 @@ import java.util.Optional;
 @Repository
 public interface SneakerRepository extends CrudRepository<Sneaker, Long> {
     Optional<Sneaker> getFirstByColor(String color);
+    void deleteAllByColor(String color);
 }
