@@ -6,9 +6,7 @@ import com.tts.TechtTalentBlog.service.BlogPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.awt.print.Book;
 
@@ -51,6 +49,12 @@ public class BlogPostController {
 //    public Iterable<Book> getAllDesc() {
 //        return blogPostRepository.findByOrderByTitleAsc();
 //    }
+
+    @DeleteMapping("/blogposts/{id}")
+    public String deletePostWithId(@PathVariable Long id, BlogPost blogPost) {
+        blogPostService.deletePostById(id);
+        return "redirect:/";
+    }
 
 
 }

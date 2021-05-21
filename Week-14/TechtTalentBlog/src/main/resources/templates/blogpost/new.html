@@ -6,31 +6,26 @@
   <link href="../../webjars/bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<div th:replace="fragments/navbar :: navbar" ></div>
+<div class="container">
+    <h1>Create a New Blog Post</h1>
+    <form action="#" th:action="@{/blogposts}" th:object="${blogPost}" method="post">
 
-<p>Please use the form below to submit a Blog Post:</p>
-<form action="#"
-      th:action="@{/blogposts}"
-      th:object="${blogPost}"
-      method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Blog Title..." th:field="*{title}" />
+        </div>
 
-    <table>
-        <tr>
-            <td>Title:</td>
-            <td><input type="text" th:field="*{title}"></td>
-        </tr>
-        <tr>
-            <td>Author:</td>
-            <td><input type="text" th:field="*{author}"></td>
-        </tr>
-        <tr>
-            <td>Blog Entry:</td>
-            <td><input type="text" th:field="*{blogEntry}"></td>
-        </tr>
-        <tr>
-            <td><button type="submit">Submit Your Post</button></td>
-        </tr>
-    </table>
-</form>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Your Name Here..." th:field="*{author}" />
+        </div>
+
+        <div class="form-group">
+            <input type="text" class ="form-control" placeholder="Blog Entry" th:field="*{blogEntry}" />
+        </div>
+
+        <button class="btn btn-primary">Submit Your Post</button>
+        </form>
+</div>
 
 <script src="../../webjars/bootstrap/5.0.1/js/bootstrap.min.js"></script>
 <script src="../../webjars/jquery/3.6.0/jquery.min.js"></script>

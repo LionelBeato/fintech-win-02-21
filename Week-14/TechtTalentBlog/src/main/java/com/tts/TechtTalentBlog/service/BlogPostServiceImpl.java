@@ -25,4 +25,9 @@ public class BlogPostServiceImpl implements BlogPostService {
         return blogPostRepository.findAll();
     }
 
+    @Override
+    public void deletePostById(Long id) {
+        blogPostRepository.deleteById(id);
+    }
+
 }

@@ -14,6 +14,8 @@ public interface BlogPostService {
 
     Iterable<BlogPost> getAllBlogPosts();
 
+    void deletePostById(Long id);
+
 //    List<BlogPost> getAllBlogPostsasList();
 
 }

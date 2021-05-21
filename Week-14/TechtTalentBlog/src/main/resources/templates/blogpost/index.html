@@ -8,9 +8,10 @@
 <!--        background-color:red !important;-->
 <!--        }-->
 <!--    </style>-->
-    <link href="webjars/bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <div th:replace="fragments/styling :: head-style" ></div>
 </head>
 <body>
+<div th:replace="fragments/navbar :: navbar" ></div>
 <div class="container">
 
     <h1>Welcome to our Blog Post Site!</h1>
@@ -18,31 +19,37 @@
 
     <div class="row">
         <div th:each="blog:${posts}">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <p th:text="${blog.title}"/>
+                        <h2 th:text="${blog.title}"></h2>
                     </div>
                     <div class="panel-body">
-                        <p th:text="${blog.author}"/>
+                        <strong><p th:text="${blog.author}"/></strong>
                         <p th:text="${blog.blogEntry}" />
                     </div>
                     <div class="panel-footer">
                         <!-- Link to Update -->
                         <!-- Link to Show  -->
                         <!--  Link to Destroy -->
+                        <form action="#" th:action="@{'/blogposts/{id}'(id=${blog.id})}" th:method="delete"
+                              class="form-horizontal">
+                            <div class="form-group">
+                                <input type="hidden" name="_method" value="delete"/>
+                                <button type="submit" class="btn btn-danger btn-block" th:text="Delete">Delete</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+<!--    <a th:href="@{/blogposts/new}"><button class="btn btn-primary">Submit a New Blog Post</button></a>-->
+
+
 </div>
 
-<a th:href="@{/blogposts/new}">
-    <button class="btn btn-primary">Submit a New Blog Post</button>
-</a>
-
-<script src="webjars/bootstrap/5.0.1/js/bootstrap.min.js"></script>
-<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
+<div th:replace="fragments/styling :: body-links"></div>
 </body>
 </html>
