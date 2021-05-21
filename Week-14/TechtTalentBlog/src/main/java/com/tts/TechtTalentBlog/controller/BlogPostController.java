@@ -31,7 +31,12 @@ public class BlogPostController {
         return "blogpost/index";
     }
 
-    @PostMapping("/")
+    @GetMapping("/blogposts/new")
+    public String newBlog(BlogPost blogPost) {
+        return "blogpost/new";
+    }
+
+    @PostMapping("/blogposts")
     public String addNewBlogPost(BlogPost blogPost, Model model) {
         blogPostService.addNewBlogPost(blogPost);
         model.addAttribute("title", blogPost.getTitle());
