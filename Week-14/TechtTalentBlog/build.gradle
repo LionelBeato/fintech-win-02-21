@@ -19,6 +19,11 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.4.5'
+	// https://mvnrepository.com/artifact/org.webjars/bootstrap
+	implementation group: 'org.webjars', name: 'bootstrap', version: '5.0.1'
+	// https://mvnrepository.com/artifact/org.webjars.bower/jquery
+	implementation group: 'org.webjars.bower', name: 'jquery', version: '3.6.0'
+
 }
 
 test {
