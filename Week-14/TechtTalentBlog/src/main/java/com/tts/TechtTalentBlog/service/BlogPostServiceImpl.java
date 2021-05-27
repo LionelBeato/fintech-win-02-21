@@ -30,4 +30,20 @@ public class BlogPostServiceImpl implements BlogPostService {
         blogPostRepository.deleteById(id);
     }
 
+    @Override
+    public BlogPost findBlogPostById(Long id) {
+        return blogPostRepository.findById(id).orElseThrow();
+    }
+
+    @Override
+    public BlogPost editBlogPostById(Long id, BlogPost blogPost) {
+        // we need to find our object
+        BlogPost foundPost = findBlogPostById(id);
+        // now we need to edit our object
+        foundPost.setBlogEntry(blogPost.getBlogEntry());
+        foundPost.setAuthor(blogPost.getAuthor());
+        foundPost.setTitle(blogPost.getTitle());
+        return addNewBlogPost(foundPost);
+    }
+
 }

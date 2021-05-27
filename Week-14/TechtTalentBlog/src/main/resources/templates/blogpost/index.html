@@ -30,13 +30,48 @@
                     </div>
                     <div class="panel-footer">
                         <!-- Link to Update -->
+                        <!-- index.html -->
+                        ...
+                        <div class="card-footer">
+                            <a href="#" th:href="@{blogposts/{id}(id=${blog.id})}">
+                                <button class="btn btn-light">Edit Post</button>
+                            </a>
+                        </div>
                         <!-- Link to Show  -->
                         <!--  Link to Destroy -->
                         <form action="#" th:action="@{'/blogposts/{id}'(id=${blog.id})}" th:method="delete"
                               class="form-horizontal">
                             <div class="form-group">
                                 <input type="hidden" name="_method" value="delete"/>
-                                <button type="submit" class="btn btn-danger btn-block" th:text="Delete">Delete</button>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Delete
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                ...
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <form action="#" th:action="@{'/blogposts/{id}'(id=${blog.id})}" th:method="delete"
+                                                      class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="_method" value="delete"/>
+                                                        <button type="submit" class="btn btn-danger btn-block" th:text="Delete">Delete</button>
+                                                    </div>
+                                                </form>
+<!--                                                <button type="button" class="btn btn-delete" th:action="@{blogposts/delete}">Save changes</button>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </form>
                     </div>
