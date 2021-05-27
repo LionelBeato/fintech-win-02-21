@@ -11,11 +11,11 @@
         <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h1 th:text="${title}"></h1>
+                    <h1 th:text="${blogPost.title}"></h1>
                 </div>
                 <div class="panel-body">
-                    <strong><p th:text="${author}"/></strong>
-                    <p th:text="${blogEntry}" />
+                    <strong><p th:text="${blogPost.author}"/></strong>
+                    <p th:text="${blogPost.blogEntry}" />
                 </div>
                 <div class="panel-footer">
                     <!-- Link to Update -->

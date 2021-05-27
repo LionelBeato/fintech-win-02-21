@@ -19,6 +19,5 @@ public interface BlogPostService {
     BlogPost findBlogPostById(Long id);
 
     BlogPost editBlogPostById(Long id, BlogPost blogPost);
-//    List<BlogPost> getAllBlogPostsasList();
 
 }
