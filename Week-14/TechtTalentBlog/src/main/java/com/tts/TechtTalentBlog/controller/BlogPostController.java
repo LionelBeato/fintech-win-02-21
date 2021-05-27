@@ -56,7 +56,7 @@ public class BlogPostController {
     @DeleteMapping("/{id}")
     public String deletePostWithId(@PathVariable Long id, BlogPost blogPost) {
         blogPostService.deletePostById(id);
-        return "redirect:/";
+        return "redirect:/blogposts";
     }
 
     @GetMapping("/{id}")
@@ -94,6 +94,10 @@ public class BlogPostController {
 
         BlogPost editedPost = blogPostService.editBlogPostById(id, blogPost);
         model.addAttribute("blogPost", editedPost);
+
+        model.addAttribute("title", blogPost.getTitle());
+        model.addAttribute("author", blogPost.getAuthor());
+        model.addAttribute("blogEntry", blogPost.getBlogEntry());
 
         return "blogpost/result";
     }
