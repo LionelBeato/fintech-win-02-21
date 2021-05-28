@@ -22,4 +22,7 @@ public class Response {
     private String name;
     private String cod;
 
+    public Response(String name) {
+        this.name = name;
+    }
 }

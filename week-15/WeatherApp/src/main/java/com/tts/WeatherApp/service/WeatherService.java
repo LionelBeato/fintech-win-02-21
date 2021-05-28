@@ -10,6 +10,7 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,21 +29,22 @@ public class WeatherService {
 
         // we need to save our zipcode argument as a zipcode object
         ZipCode passedZipCode = new ZipCode(zipCode);
-        zipCodeRepository.save(passedZipCode);
-
         RestTemplate restTemplate = new RestTemplate();
+
         try {
-            return restTemplate.getForObject(url, Response.class);
-        } catch (HttpClientErrorException ex) {
-            Response response = new Response();
-            response.setName("error");
+            Response response = restTemplate.getForObject(url, Response.class);
+            zipCodeRepository.save(passedZipCode);
             return response;
+
+        } catch (HttpClientErrorException ex) {
+            return new Response("error");
         }
     }
 
     public List<ZipCode> getLatestZipCodeSearches() {
         List<ZipCode> zipCodes = new ArrayList<>();
         zipCodeRepository.findAll().forEach(zipCodes::add);
+        Collections.reverse(zipCodes);
         return zipCodes.stream()
                 .limit(10)
                 .collect(Collectors.toList());
