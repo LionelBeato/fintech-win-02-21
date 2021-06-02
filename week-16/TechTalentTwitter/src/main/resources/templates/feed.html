@@ -13,6 +13,7 @@
 
 <body>
 <div class="container">
+  <div th:replace="fragments/navbar"></div>
   <h2>Tweets</h2>
   <div th:each="tweet:${tweetList}">
     <h5>@<span th:text="${tweet.user.username}"></span>

@@ -13,6 +13,7 @@
 
 <body>
 <div class="container">
+    <div th:replace="fragments/navbar"></div>
     <h2>Sign up</h2>
     <form th:action="@{/signup}" th:object="${user}" method="post" autocomplete="off" >
         <div class="form-group">

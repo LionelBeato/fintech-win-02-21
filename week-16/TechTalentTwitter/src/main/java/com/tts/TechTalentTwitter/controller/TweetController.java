@@ -17,9 +17,17 @@ import java.util.List;
 @Controller
 public class TweetController {
 
-    @Autowired
+    // here we are adding the service dependencies,
+    // you can either autowire both or inject them via a constructor
+//    @Autowired
     private UserService userService;
+//    @Autowired
     private TweetService tweetService;
+
+    public TweetController(UserService userService, TweetService tweetService) {
+        this.userService = userService;
+        this.tweetService = tweetService;
+    }
 
     @GetMapping({"/tweets", "/"})
     public String getFeed(Model model) {
