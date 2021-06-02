@@ -10,15 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
 public class UserController {
 
 //    @Autowired
-    UserService userService;
+    private UserService userService;
 //    @Autowired
-    TweetService tweetService;
+    private TweetService tweetService;
 
     public UserController(UserService userService, TweetService tweetService) {
         this.userService = userService;
@@ -32,6 +33,23 @@ public class UserController {
         model.addAttribute("tweetList", tweets);
         model.addAttribute("user", user);
         return "user";
+    }
+
+    @GetMapping("/users")
+    public String getUser(Model model) {
+        List<User> users = userService.findAll();
+        model.addAttribute("users", users);
+        setTweetCounts(users, model);
+        return "users";
+    }
+
+    private void setTweetCounts(List<User> users, Model model) {
+        HashMap<String, Integer> tweetCounts = new HashMap<>();
+        for (User user: users) {
+            List<Tweet> tweets = tweetService.findAllByUser(user);
+            tweetCounts.put(user.getUsername(), tweets.size());
+        }
+        model.addAttribute("tweetCounts", tweetCounts);
     }
 
 
