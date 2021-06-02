@@ -23,6 +23,14 @@
   <!-- add more code here -->
   <h5>Joined <span th:text="${#dates.format(user.createdAt, 'MMMM dd, yyyy')}"></span></h5>
 
+<!-- below is my follow and unfollow button -->
+<!--  <form th:action="@{/follow/} + ${user.username}" th:if="${!following}" method="post">-->
+<!--    <button style="float:right" type="Submit" class="btn btn-lg btn-success">Follow</button>-->
+<!--  </form>-->
+<!--  <form th:action="@{/unfollow/} + ${user.username}" th:if="${following}" method="post">-->
+<!--    <button style="float:right" type="Submit" class="btn btn-lg btn-primary unfollow_btn">Following</button>-->
+<!--  </form>-->
+
   <div th:if="${not #lists.isEmpty(tweetList)}">
     <h3>Tweets</h3>
   </div>

@@ -26,7 +26,9 @@ public class FollowController {
         followers.add(loggedInUser);
         userToFollow.setFollowers(followers);
         userService.save(userToFollow);
-        return "redirect: " + request.getHeader("Referer");
+//        return "redirect: " + request.getHeader("Referer");
+        return "redirect:" + request.getHeader("Referer");
+
     }
 
     @PostMapping("/unfollow/{username}")
@@ -38,7 +40,7 @@ public class FollowController {
         followers.remove(loggedInUser);
         userToUnfollow.setFollowers(followers);
         userService.save(userToUnfollow);
-        return "redirect: " + request.getHeader("Referer");
+        return "redirect:" + request.getHeader("Referer");
     }
 
 }
