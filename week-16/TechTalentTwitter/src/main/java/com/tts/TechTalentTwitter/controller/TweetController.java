@@ -1,6 +1,7 @@
 package com.tts.TechTalentTwitter.controller;
 
 import com.tts.TechTalentTwitter.model.Tweet;
+import com.tts.TechTalentTwitter.model.TweetDisplay;
 import com.tts.TechTalentTwitter.model.User;
 import com.tts.TechTalentTwitter.service.TweetService;
 import com.tts.TechTalentTwitter.service.UserService;
@@ -32,7 +33,7 @@ public class TweetController {
 
     @GetMapping({"/tweets", "/"})
     public String getFeed(Model model) {
-        List<Tweet> tweets = tweetService.findAll();
+        List<TweetDisplay> tweets = tweetService.findAll();
         model.addAttribute("tweetList", tweets);
         return "feed";
     }
@@ -60,7 +61,7 @@ public class TweetController {
 
     @GetMapping("/tweets/{tag}")
     public String getTweetsByTag(@PathVariable("tag") String tag, Model model) {
-        List<Tweet> tweets = tweetService.findAllWithTag(tag);
+        List<TweetDisplay> tweets = tweetService.findAllWithTag(tag);
         model.addAttribute("tweetList", tweets);
         model.addAttribute("tag", tag);
         return "taggedTweets";
