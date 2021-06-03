@@ -19,9 +19,11 @@
         <h2>Users</h2>
         <ul class="nav nav-tabs">
             <li role="presentation" th:classappend="${filter == 'all' ? 'active' : '' }">
-                <a href="/tweets">All</a></li>
+                <a href="/users">All</a></li>
             <li role="presentation" th:classappend="${filter == 'following' ? 'active' : '' }">
-                <a href="/tweets?filter=following">Following</a></li>
+                <a href="/users?filter=following">Following</a></li>
+            <li role="presentation" th:classappend="${filter == 'followers' ? 'active' : '' }">
+                <a href="/users?filter=followers">Followers</a></li>
         </ul><br/>
         <div class="list-group" th:each="user:${users}">
             <a th:href="@{/users/} + ${user.username}" class="list-group-item list-group-item-action">

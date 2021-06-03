@@ -36,8 +36,8 @@ public class TweetService {
         return formatTweets(tweets);
     }
 
-    public List<Tweet> findAllByUsers(List<User> users) {
-        return tweetRepository.findAllByUserInOrderByCreatedAtDesc(users);
+    public List<TweetDisplay> findAllByUsers(List<User> users) {
+        return formatTweets(tweetRepository.findAllByUserInOrderByCreatedAtDesc(users));
     }
 
     public List<TweetDisplay> findAllWithTag(String phrase) {
