@@ -4,11 +4,13 @@ _All of your hard work has led up to this moment! You are now ready to start you
 
 The project will need to satisy the following criteria:
 
-- it needs to have a **backend** and a **frontend**
-- the backend must be done in **Java** (ideally, in Spring Boot)
-- the frontend can be done with any technology you want
-- it needs to have a **database** of some sort
-- it's expected that your application will have **full CRUD**
+- it needs to have a **backend** and a **frontend**.
+- the backend must be done in **Java** (ideally, in Spring Boot).
+- the frontend can be done with any technology you want but it must be **styled**.
+- it needs to have a **database** of some sort.
+- it's expected that your application will have **full CRUD**.
+- the application should use some form of **spring security**.
+- the application should use at least **one third-party API** (Google Weather, Maps, etc...).
 
 ## 📃 Proposals
 
