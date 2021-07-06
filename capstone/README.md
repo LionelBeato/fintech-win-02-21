@@ -17,9 +17,9 @@ To start, we will break out into teams and create a proposal for our projects. D
 
 Once the proposal is submitted and approved, it is time to start development. Take an **agile** approach and assign roles in your team. Roles include but are not limited to:
 
-    - Product Owner
-    - Scribe
-    - Scrum Master
-    - Developer
+- Product Owner
+- Scribe
+- Scrum Master
+- Developer
 
 I highly recommend creating a system to track tasks and issues. Utilize Trello or Github Project kanban boards in order to neatly and efficiently keep track of what needs to be done what has been done.
