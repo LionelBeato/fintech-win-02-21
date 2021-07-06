@@ -22,12 +22,12 @@ Once the proposal is submitted and approved, it is time to start development. Ta
 - Scrum Master
 - Developer
 
-I highly recommend creating a system to track tasks and issues. Utilize **Trello** or **Github Project** kanban boards in order to neatly and efficiently keep track of what needs to be done what has been done.
+I highly recommend creating a system to track tasks and issues. Utilize **Trello** or **Github Project** kanban boards in order to neatly and efficiently keep track of what needs to be done and what has been done.
 
 The milestones you defined in your proposal should more or less align neatly with the idea of **sprints**. Incorporate working in sprints to better focus on achieving specific outcomes.
 
 ## ℹ️ Resources
 
-- [Sprint Book](https://www.thesprintbook.com/)
-- [Scrum Guide](https://scrumguides.org/scrum-guide.html)
-- [Responsibilities of a Product Owner](https://www.lucidchart.com/blog/product-owner-roles-and-responsibilities)
+- [Sprint Book](https://www.thesprintbook.com/): a great resource if you want to learn more about sprints.
+- [Scrum Guide](https://scrumguides.org/scrum-guide.html): a great website with many helpful resources on scrum.
+- [Responsibilities of a Product Owner](https://www.lucidchart.com/blog/product-owner-roles-and-responsibilities): a set list of responsibilites for a product owner.
