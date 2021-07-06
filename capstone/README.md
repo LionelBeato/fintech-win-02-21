@@ -9,11 +9,11 @@ The project will need to satisy the following criteria:
 - the frontend can be done with any technology you want
 - it needs to have a **database** of some sort
 
-## Proposals
+## 📃 Proposals
 
 To start, we will break out into teams and create a proposal for our projects. Don't worry about the superfluous details like address information or phone numbers; I want you to be concerned about the broader details like the technologies you'll use, what your application will ultimately be for, and what milestones you're anticipating hitting.
 
-## Agile
+## 🔄 Agile
 
 Once the proposal is submitted and approved, it is time to start development. Take an **agile** approach and assign roles in your team. Roles include but are not limited to:
 
@@ -26,7 +26,7 @@ I highly recommend creating a system to track tasks and issues. Utilize **Trello
 
 The milestones you defined in your proposal should more or less align neatly with the idea of **sprints**. Incorporate working in sprints to better focus on achieving specific outcomes.
 
-## Resources
+## ℹ️ Resources
 
 - [Sprint Book](https://www.thesprintbook.com/)
 - [Scrum Guide](https://scrumguides.org/scrum-guide.html)
