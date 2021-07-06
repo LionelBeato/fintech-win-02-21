@@ -4,10 +4,10 @@ All of your hard work has led up to this moment! You are now ready to start your
 
 The project will need to satisy the following criteria:
 
-    - it needs to have a backend and a frontend
-    - the backend must be done in Java (ideally, in Spring Boot)
-    - the frontend can be done with any technology you want
-    - it needs to have a database of some sort
+- it needs to have a **backend** and a **frontend**
+- the backend must be done in **Java** (ideally, in Spring Boot)
+- the frontend can be done with any technology you want
+- it needs to have a **database** of some sort
 
 ## Proposals
 
