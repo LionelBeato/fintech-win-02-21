@@ -8,8 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
-
 @Controller
 @RequestMapping("/blogposts")
 public class BlogPostController {
@@ -52,6 +50,8 @@ public class BlogPostController {
         return "blogpost/edit";
     }
 
+    // one way of rendering a blogpost, here we define a model attribute over a method
+    // that returns an instance of BlogPost
 //    @ModelAttribute("blogPost")
 //    public BlogPost getBlogPost() {
 //        return new BlogPost();
@@ -68,6 +68,5 @@ public class BlogPostController {
         model.addAttribute("blogPost", editedPost);
         return "blogpost/result";
     }
-
 
 }
