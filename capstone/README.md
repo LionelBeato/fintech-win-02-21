@@ -1,6 +1,6 @@
 # Capstone Project
 
-All of your hard work has led up to this moment! You are now ready to start your capstone project! Think of your Capstone Project as an MVP for a real-world application. I want to see it working and running!
+_All of your hard work has led up to this moment! You are now ready to start your capstone project! Think of your Capstone Project as an MVP for a real-world application. I want to see it working and running!_
 
 The project will need to satisy the following criteria:
 
@@ -8,6 +8,7 @@ The project will need to satisy the following criteria:
 - the backend must be done in **Java** (ideally, in Spring Boot)
 - the frontend can be done with any technology you want
 - it needs to have a **database** of some sort
+- it's expected that your application will have **full CRUD**
 
 ## 📃 Proposals
 
