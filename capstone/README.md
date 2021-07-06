@@ -24,6 +24,8 @@ Once the proposal is submitted and approved, it is time to start development. Ta
 
 I highly recommend creating a system to track tasks and issues. Utilize **Trello** or **Github Project** kanban boards in order to neatly and efficiently keep track of what needs to be done what has been done.
 
+The milestones you defined in your proposal should more or less align neatly with the idea of **sprints**. Incorporate working in sprints to better focus on achieving specific outcomes.
+
 ## Resources
 
 - [Sprint Book](https://www.thesprintbook.com/)
