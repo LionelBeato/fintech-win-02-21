@@ -1,9 +1,7 @@
 package com.tts.fullstackdemo.controller;
 
 import com.tts.fullstackdemo.model.SimpleModel;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("http://localhost:3000")
 @RestController
@@ -19,6 +17,12 @@ public class SimpleController {
     @GetMapping("/simple")
     public SimpleModel getModel() {
         return new SimpleModel(36L, "Jeff");
+    }
+
+    @PostMapping("/post")
+    public SimpleModel postModel(@RequestBody SimpleModel model) {
+        System.out.println(model);
+        return model;
     }
 
 }
