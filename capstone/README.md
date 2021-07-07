@@ -31,6 +31,12 @@ The milestones you defined in your proposal should more or less align neatly wit
 
 ## ℹ️ Resources
 
+### Agile
+
 - [Sprint Book](https://www.thesprintbook.com/): a great resource if you want to learn more about sprints.
 - [Scrum Guide](https://scrumguides.org/scrum-guide.html): a great website with many helpful resources on scrum.
 - [Responsibilities of a Product Owner](https://www.lucidchart.com/blog/product-owner-roles-and-responsibilities): a set list of responsibilites for a product owner.
+
+### API
+
+- [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
