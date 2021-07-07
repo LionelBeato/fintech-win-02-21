@@ -18,7 +18,7 @@ function App() {
   // we will need to use a fetch on the endpoint defined in the backend
 
   // get the data from the backend
-  // we would access the data and configure it through then methods
+  // we would access the data and configure it through .then() methods
 
   // render that data to my page
   // we will template in that data in our jsx/html
