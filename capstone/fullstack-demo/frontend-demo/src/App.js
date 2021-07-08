@@ -4,15 +4,15 @@ import { useState } from 'react';
 
 function App() {
 
-// this is a state hook
-// it'll keep track of anything stateful concerning this component
-// useState can accept a default value, almost like a placeholder of sorts
-  const [state, setState] = useState({id: 0, name: ''});
+  // this is a state hook
+  // it'll keep track of anything stateful concerning this component
+  // useState can accept a default value, almost like a placeholder of sorts
+  const [state, setState] = useState({id: 0, name: ``});
   
   // simple object for use later
   let myObject = {
     id: 76,
-    name: 'Tony',
+    name: `Tony`,
   } 
 
   // i want to refer to the backend
@@ -41,7 +41,7 @@ function App() {
     fetch(`http://localhost:8080/post`, {
       method: `POST`,
       headers: {
-        'Content-Type': 'application/json'
+        `Content-Type`: `application/json`
       },
       body: JSON.stringify(myObject),
     })
@@ -56,6 +56,7 @@ function App() {
       <button onClick={handleFetch}>Click me to access backend</button>
       <button onClick={handlePost}>Click me to send Tony to the backend</button>
 
+      {/* Note that React will not allow allow objects  */}
       <p>{state.name}</p>
       <p>{state.id}</p>
 

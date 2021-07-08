@@ -1,7 +1,14 @@
 package com.tts.fullstackdemo.model;
 
+
+import javax.persistence.*;
+
+//@Table(name = "simple_model")
+@Entity
 public class SimpleModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
 
@@ -10,6 +17,10 @@ public class SimpleModel {
 
     public SimpleModel(Long id, String name) {
         this.id = id;
+        this.name = name;
+    }
+
+    public SimpleModel(String name) {
         this.name = name;
     }
 
