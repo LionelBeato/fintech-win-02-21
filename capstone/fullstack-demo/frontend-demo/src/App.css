@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+button {
+  margin:1em;
+  width:10em;
+}
+
+section > * {
+  /* min-width: 20rem; */
+}
+
+input {
+
+  font-size:1.2rem;
+}

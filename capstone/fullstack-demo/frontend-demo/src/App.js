@@ -84,29 +84,49 @@ function App() {
 
   }
 
+  let styles = {
+    section: {
+      maxWidth: `15em`,
+       margin:`auto`,
+        padding: `3em`,
+    }
+  }
+
   return (
-    <main>
-      <h1>This is a test</h1>
-      <button onClick={handleFetch}>Click me to access backend</button>
-      <button onClick={handlePost}>Click me to send Tony to the backend</button>
-      <button onClick={handleCreds}>This will work!</button>
+    <main style={{alignItems: `center`, paddingTop: `10em`}}>
+     
+     
 
 
       {/* Note that React will not allow allow objects  */}
-      <p>{state.name}</p>
-      <p>{state.id}</p>
+      {/* <p>{state.name}</p>
+      <p>{state.id}</p> */}
 
+      <section style={styles.section}>
       <form onSubmit={handleSubmit}>
         <label>
-        Username:
+        <h4>Username:</h4>
         <input type="text" value={username} onChange={ e => setUsername(e.target.value)} />
         </label>
         <label>
-        Password:
+        <h4>Password:</h4>
         <input type="text" value={password} onChange={ e => setPassword(e.target.value)} />
         </label>
+        <br></br>
+        <br></br>
         <input type="submit" value="Submit" />
       </form>
+      </section>
+
+      <section style={styles.section}>
+      <button onClick={handleFetch}>Click me to access backend</button>
+      <br></br>
+      <button onClick={handlePost}>Click me to send Tony to the backend</button>
+      <br></br>
+      <button onClick={handleCreds}>This will work!</button>
+      </section>
+      
+      
     </main>
   );
 }
