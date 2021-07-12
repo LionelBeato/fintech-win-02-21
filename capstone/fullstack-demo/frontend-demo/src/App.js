@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react'; 
+import btoa from 'btoa';
 
 function App() {
 
@@ -8,6 +9,13 @@ function App() {
   // it'll keep track of anything stateful concerning this component
   // useState can accept a default value, almost like a placeholder of sorts
   const [state, setState] = useState({id: 0, name: ``});
+  const [user, setUser] = useState(""); 
+
+  const [pass, setPass] = useState(); 
+  const [fullUser, setFullUser] = useState({});
+
+  
+
   
   // simple object for use later
   let myObject = {
@@ -41,7 +49,7 @@ function App() {
     fetch(`http://localhost:8080/post`, {
       method: `POST`,
       headers: {
-        `Content-Type`: `application/json`
+        'Content-Type': `application/json`
       },
       body: JSON.stringify(myObject),
     })
@@ -49,16 +57,54 @@ function App() {
     .then(json => console.log(json))
   }
 
+  const handleCreds = () => {
+    fetch(`http://localhost:8080/greeting`, {
+      method: `GET`, 
+      headers: {
+          "Authorization": `Basic ${btoa(user)}` 
+      }
+    })
+    .then(data => data.text())
+    .then(text => console.log(text))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(event)
+
+
+
+    console.log(user)
+    let encodedUser = btoa(user); 
+    console.log(encodedUser);
+    // console.log(pass)
+
+  }
+ 
 
   return (
     <main>
       <h1>This is a test</h1>
       <button onClick={handleFetch}>Click me to access backend</button>
       <button onClick={handlePost}>Click me to send Tony to the backend</button>
+      <button onClick={handleCreds}>This will work!</button>
+
 
       {/* Note that React will not allow allow objects  */}
       <p>{state.name}</p>
       <p>{state.id}</p>
+
+      <form onSubmit={handleSubmit}>
+        <label>
+        Username:
+        <input type="text" value={user} onChange={ e => setUser(e.target.value)} />
+        </label>
+        {/* <label>
+        Password:
+        <input type="text" value={user.password} onChange={ e => setUser(e.target.value)} />
+        </label> */}
+        <input type="submit" value="Submit" />
+      </form>
 
     </main>
   );
