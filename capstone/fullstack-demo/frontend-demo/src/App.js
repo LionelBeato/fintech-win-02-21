@@ -9,10 +9,8 @@ function App() {
   // it'll keep track of anything stateful concerning this component
   // useState can accept a default value, almost like a placeholder of sorts
   const [state, setState] = useState({id: 0, name: ``});
-  const [user, setUser] = useState(""); 
-
-  const [pass, setPass] = useState(); 
-  const [fullUser, setFullUser] = useState({});
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   
 
@@ -61,7 +59,7 @@ function App() {
     fetch(`http://localhost:8080/greeting`, {
       method: `GET`, 
       headers: {
-          "Authorization": `Basic ${btoa(user)}` 
+          "Authorization": `Basic ${localStorage.getItem('encodedUser')}` 
       }
     })
     .then(data => data.text())
@@ -70,17 +68,21 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event)
 
+    let credentials = {
+      username: username,
+      password: password
+    }
 
+    let encodedUser = btoa(`${credentials.username}:${credentials.password}`); 
 
-    console.log(user)
-    let encodedUser = btoa(user); 
     console.log(encodedUser);
+    localStorage.setItem('encodedUser', encodedUser)
     // console.log(pass)
 
+    console.log(localStorage.getItem('encodedUser'))
+
   }
- 
 
   return (
     <main>
@@ -97,15 +99,14 @@ function App() {
       <form onSubmit={handleSubmit}>
         <label>
         Username:
-        <input type="text" value={user} onChange={ e => setUser(e.target.value)} />
+        <input type="text" value={username} onChange={ e => setUsername(e.target.value)} />
         </label>
-        {/* <label>
+        <label>
         Password:
-        <input type="text" value={user.password} onChange={ e => setUser(e.target.value)} />
-        </label> */}
+        <input type="text" value={password} onChange={ e => setPassword(e.target.value)} />
+        </label>
         <input type="submit" value="Submit" />
       </form>
-
     </main>
   );
 }
