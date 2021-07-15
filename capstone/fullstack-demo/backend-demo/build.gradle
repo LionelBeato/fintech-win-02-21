@@ -1,11 +1,13 @@
 plugins {
-	id 'org.springframework.boot' version '2.5.1' // had to downgrade because 2.5.2 doesn't build an executable!!
+	id 'org.springframework.boot' version '2.5.2'
+	// had to downgrade because 2.5.2 doesn't build an executable!!
+	// changed it back and just turned off the jatr building
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
 
 group = 'com.tts'
-version = '0.1.1-SNAPSHOT'
+version = '0.2.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 configurations {
@@ -35,10 +37,10 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
-//
-//jar {
-//	enabled = false
-//}
+
+jar {
+	enabled = false
+}
 
 //bootJar {
 //	mainClass = 'com.tts.fullstackdemo.FullstackDemoApplication'
