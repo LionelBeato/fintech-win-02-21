@@ -1,19 +1,25 @@
 package com.tts.fullstackdemo.controller;
 
-import com.tts.fullstackdemo.model.SimpleModel;
-import com.tts.fullstackdemo.repo.SimpleModelRepository;
-import com.tts.fullstackdemo.service.SimpleModelService;
+import com.tts.fullstackdemo.model.User;
+import com.tts.fullstackdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @CrossOrigin("http://localhost:3000")
 @RestController
+//@Profile("dev")
 public class SimpleController {
 
     @Autowired
-    SimpleModelService service;
+    UserService service;
+
+    @Value("${msg.statement}")
+    String message;
+
 
     @GetMapping("/greeting")
     public String getGreeting() {
@@ -23,19 +29,26 @@ public class SimpleController {
     // i am going to target this method specifically
     // this method will resolve at localhost:8080/simple
     @GetMapping("/simple")
-    public SimpleModel getModel() {
-        return new SimpleModel(36L, "Jeff");
+    public User getModel() {
+        return new User(36L, "Jeff");
     }
 
+    @GetMapping("/message")
+    public String getMessage() {
+        return message;
+    }
+
+
+
     @PostMapping("/post")
-    public SimpleModel postModel(@RequestBody SimpleModel model) {
+    public User postModel(@RequestBody User model) {
 //        System.out.println(model);
 //        return model;
         return service.createModel(model);
     }
 
     @GetMapping("/all")
-    public List<SimpleModel> getAllModels() {
+    public List<User> getAllModels() {
         return service.readAllModels();
     }
 

@@ -1,5 +1,6 @@
 package com.tts.fullstackdemo.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -13,6 +14,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import javax.sql.DataSource;
 import java.util.List;
 
 @Configuration
@@ -20,17 +22,22 @@ import java.util.List;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    @Autowired
+    private DataSource datasource;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().configurationSource(corsConfigurationSource())
                 .and()
-//				.csrf().disable()
+				.csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+                .antMatchers("/*").authenticated()
+                .antMatchers("/post").authenticated()
                 .anyRequest().authenticated()
                 .and()
                 .logout()
@@ -55,10 +62,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
+//        auth.inMemoryAuthentication()
+//                .withUser("user")
+//                .password(passwordEncoder().encode("pass"))
+//                .roles("USER");
+
+        auth.jdbcAuthentication()
+                .dataSource(datasource)
+                .passwordEncoder(passwordEncoder())
                 .withUser("user")
                 .password(passwordEncoder().encode("pass"))
-                .roles("USER");
+                .authorities("ADMIN_ROLE, USER_ROLE");
+
     }
 
 
