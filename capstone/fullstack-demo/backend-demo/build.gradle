@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.5.2'
+	id 'org.springframework.boot' version '2.5.1' // had to downgrade because 2.5.2 doesn't build an executable!!
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
@@ -35,7 +35,11 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+//
+//jar {
+//	enabled = false
+//}
 
-bootJar {
-	mainClass = 'com.tts.fullstackdemo.FullstackDemoApplication'
-}
+//bootJar {
+//	mainClass = 'com.tts.fullstackdemo.FullstackDemoApplication'
+//}
