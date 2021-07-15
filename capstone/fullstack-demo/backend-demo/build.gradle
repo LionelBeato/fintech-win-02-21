@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.tts'
-version = '0.0.1-SNAPSHOT'
+version = '0.1.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 configurations {
@@ -34,4 +34,8 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+bootJar {
+	mainClass = 'com.tts.fullstackdemo.FullstackDemoApplication'
 }

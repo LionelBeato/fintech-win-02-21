@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Arrays;
 
-@Slf4j
+//@Slf4j
 @SpringBootApplication
 public class FullstackDemoApplication {
 
@@ -14,7 +14,7 @@ public class FullstackDemoApplication {
 
 		Arrays.stream(args).forEach(System.out::println);
 		SpringApplication.run(FullstackDemoApplication.class, args);
-		log.error("Hello from a logger!");
+//		log.error("Hello from a logger!");
 	}
 
 }
