@@ -22,6 +22,6 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: cd capstone/fullstack-demo/backend-demo && chmod +x gradlew
     - name: Build with Gradle
       run: capstone/fullstack-demo/backend-demo/gradlew build
