@@ -24,4 +24,4 @@ jobs:
     - name: Grant execute permission for gradlew
       run: cd capstone/fullstack-demo/backend-demo && chmod +x gradlew
     - name: Build with Gradle
-      run: capstone/fullstack-demo/backend-demo/gradlew build
+      run: cd capstone/fullstack-demo/backend-demo && gradlew build
